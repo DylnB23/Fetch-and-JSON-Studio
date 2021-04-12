@@ -1,12 +1,23 @@
 // TODO: add code here
 window.addEventListener("load", function(){
+    let json= []
     fetch("https://handlers.education.launchcode.org/static/astronauts.json").then(function(response){
         response.json().then(function(json) {
             const container = document.getElementById("container")
-            index = 6
+            let index = json.length;
             for (let i=0; i<index.length; i++){
-            container.innerHTML = <h3>Name ${json[index].name}</h3>
-            }
+                div.innerHTML= `
+                <div>
+                        <h3> ${json[index].firstName} ${json[index].lastName}</h3>
+                            <ul>
+                                <li>Hours in space: ${json[index].hoursInSpace}</li>
+                                <li>Active: ${json[index].active} </li>
+                                <li>Skills: ${json[index].skills} </li>
+                            </ul>
+                </div>
+                        <img class="avatar" src="${json[index].picture}">
+                
+            `};
          });
     });
 });
