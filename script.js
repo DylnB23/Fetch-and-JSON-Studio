@@ -1,23 +1,21 @@
 // TODO: add code here
 window.addEventListener("load", function(){
-    
+    let json= [];
     fetch("https://handlers.education.launchcode.org/static/astronauts.json").then( function(response){
         response.json().then( function(json) {
             const container = document.getElementById("container");
-            let json= [];
-            let index= 0;
-            for (let i=0; i<json.length; i++){
+            for (let i=0; i < json.length; i++){
                 container.innerHTML += `
                     <div class="astronaut">
                         <div class="bio">
-                            <h3> ${json[index].firstName} ${json[index].lastName}</h3>
+                            <h3> ${json[i].firstName} ${json[i].lastName}</h3>
                                 <ul>
-                                    <li>Hours in space: ${json[index].hoursInSpace}</li>
-                                    <li>Active: ${json[index].active} </li>
-                                    <li>Skills: ${json[index].skills} </li>
+                                    <li>Hours in space: ${json[i].hoursInSpace}</li>
+                                    <li>Active: ${json[i].active} </li>
+                                    <li>Skills: ${json[i].skills} </li>
                                 </ul>
                             </div>
-                            <img class="avatar" src="${json[index].picture}">
+                            <img class="avatar" src="${json[i].picture}">
                         </div>
                     `;
                 };
